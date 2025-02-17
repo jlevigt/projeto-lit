@@ -1,9 +1,9 @@
-import SimpleForm from "./components/SimpleForm";
+import MultiStepForm from "./components/MultiStepForm";
 
 function App() {
   return (
     <div>
-      <SimpleForm />
+      <MultiStepForm />
     </div>
   );
 }
