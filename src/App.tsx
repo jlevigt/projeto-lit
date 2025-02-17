@@ -2,7 +2,7 @@ import MultiStepForm from "./components/MultiStepForm";
 
 function App() {
   return (
-    <div>
+    <div style={{ background: "linear-gradient(to bottom, black, #8a2be2)" }}>
       <MultiStepForm />
     </div>
   );
