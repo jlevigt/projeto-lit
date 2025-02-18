@@ -1,14 +1,26 @@
-import { Field, HStack, Input, NativeSelect, Stack } from "@chakra-ui/react";
+import { Field, HStack, NativeSelect, Stack } from "@chakra-ui/react";
 import { Switch } from "@/components/ui/switch";
 
-export default function Step3() {
+interface StepProps {
+  formRef: React.RefObject<any>;
+}
+
+export default function Step3({ formRef }: StepProps) {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
+    formRef.current[e.target.name] = e.target.value;
+  };
+
+  const handleSwitchChange = (value: boolean) => {
+    formRef.current["necessidadeEspecial"] = value;
+  };
+
   return (
     <Stack>
       <HStack>
         <Field.Root>
           <Field.Label>Grupo Étnico</Field.Label>
           <NativeSelect.Root size="sm" width="240px">
-            <NativeSelect.Field placeholder="Selecione">
+            <NativeSelect.Field placeholder="Selecione" name="grupo" onChange={handleChange}>
               <option value="nativo">Nativo</option>
               <option value="naturalizado">Naturalizado</option>
               <option value="estrangeiro">Estrangeiro</option>
@@ -70,7 +82,7 @@ export default function Step3() {
 
       <Field.Root>
         <Field.Label>Necessidade Especial</Field.Label>
-        <Switch />
+        <Switch onChange={(e) => handleSwitchChange(e.target.checked)} />
       </Field.Root>
     </Stack>
   );
