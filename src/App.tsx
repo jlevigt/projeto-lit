@@ -37,7 +37,7 @@ function App() {
     { title: "Estado Civil Identificação", component: <Step3 formRef={formRef} /> },
     { title: "Perfil Socioeconômico", component: <Step4 /> },
   ];
-
+  // oi
   return (
     <Box
       minH="100vh"
